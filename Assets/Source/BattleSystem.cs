@@ -37,16 +37,13 @@ public class BattleSystem : MonoBehaviour {
     TextMeshProUGUI dialogueText;
 
     [SerializeField]
-    TextMeshProUGUI playerName;
-
-    [SerializeField]
-    TextMeshProUGUI enemyName;
-
-    [SerializeField]
     BattleHUD playerHUD;
 
     [SerializeField]
     BattleHUD enemyHUD;
+
+    [SerializeField]
+    List<string> enemyNames;
 
     BattleState state;
     Dictionary<string, GameObject> enemyDataMap;
@@ -65,8 +62,9 @@ public class BattleSystem : MonoBehaviour {
     void Start() {
 
         state = BattleState.START;
-        string enemyName = "something";
-        SetupBattle(enemyName);
+        // Placeholder remove this.
+        int random = Random.Range(0, 2);
+        SetupBattle(enemyNames[random]);
     }
 
     void SetupBattle(string enemyName) {
