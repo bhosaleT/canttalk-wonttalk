@@ -18,24 +18,6 @@ public class BattleSystem : MonoBehaviour {
 
     }
 
-    [System.Serializable]
-    public class ActualAttackData {
-        [SerializeField]
-        public string attackDialogue;
-
-        [SerializeField]
-        public int damageValue;
-    }
-
-    [System.Serializable]
-    public class AttackData {
-        [SerializeField]
-        public string attackID;
-
-        [SerializeField]
-        public ActualAttackData attackData;
-    }
-
     //Config
     //
 
@@ -66,26 +48,15 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField]
     GameObject buttonsGameObject;
 
-    [SerializeField]
-    List<AttackData> attackDataList;
-
     BattleState state;
     Dictionary<string, GameObject> enemyDataMap;
-    Dictionary<string, ActualAttackData> attackDataMap;
     Unit player;
     Unit currentEnemy;
 
     void Awake() {
-
         enemyDataMap = new Dictionary<string, GameObject>();
-        attackDataMap = new Dictionary<string, ActualAttackData>();
-
         foreach(EnemyData data in enemyDataList) {
             enemyDataMap.Add(data.enemyName, data.enemyPrefab);
-        }
-
-        foreach(AttackData data in attackDataList) {
-            attackDataMap.Add(data.attackID, data.attackData);
         }
     }
 
@@ -109,7 +80,7 @@ public class BattleSystem : MonoBehaviour {
             currentEnemy = Instantiate(enemyDataMap[enemyName], enemySpawnPoint).GetComponent<Unit>();
 
         } else {
-            Debug.LogError("Enemy not found");
+            Debug.LogError("Enemy GameObject not found, MayDay!! MayDay!!");
         }
 
         playerHUD.SetupHUD(player);
@@ -141,7 +112,7 @@ public class BattleSystem : MonoBehaviour {
         buttonsGameObject.SetActive(true);
     }
 
-    IEnumerator ActuallyAttack(ActualAttackData data) {
+    IEnumerator ActuallyAttack(Unit.ActualAttackData data) {
         dialogueText.gameObject.SetActive(true);
         buttonsGameObject.SetActive(false);
 
@@ -208,8 +179,7 @@ public class BattleSystem : MonoBehaviour {
             return;
         }
 
-        ActualAttackData data = attackDataMap[attackID];
-
+        Unit.ActualAttackData data = player.FetchAttackData(attackID);
         StartCoroutine(ActuallyAttack(data));
     }
 

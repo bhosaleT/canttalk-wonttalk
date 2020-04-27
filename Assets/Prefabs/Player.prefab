@@ -130,3 +130,8 @@ MonoBehaviour:
   damage: 5
   maxHP: 30
   currentHP: 30
+  attackDataList:
+  - attackID: Attack
+    attackData:
+      attackDialogue: you attacked someone
+      damageValue: 10
