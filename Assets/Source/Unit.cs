@@ -24,4 +24,16 @@ public class Unit : MonoBehaviour {
 
     // 
     // \Config
+
+    // Public methods
+
+    public bool TakeDamage(int damage) {
+        currentHP -= damage;
+
+        if(currentHP < 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
