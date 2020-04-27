@@ -125,8 +125,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89c2a5179ddae43a527d0e9abce3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: The Dude
-  unitLevel: 2
+  unitName: Kids
+  unitLevel: 3
   damage: 5
-  maxHP: 30
-  currentHP: 30
+  maxHP: 1000
+  currentHP: 1000
+  attackDataList:
+  - attackID: AttackOne
+    attackData:
+      attackDialogue: Attack was attacked
+      damageValue: 1
+      isHealer: 0
+  - attackID: AttackTwo
+    attackData:
+      attackDialogue: Attack was attaccked
+      damageValue: 1
+      isHealer: 0
+  - attackID: AttackThree
+    attackData:
+      attackDialogue: Attacl was attacked
+      damageValue: 1
+      isHealer: 0
+  - attackID: Heal
+    attackData:
+      attackDialogue: Heal was used
+      damageValue: 1
+      isHealer: 1
+  attackIDs:
+  - AttackOne
+  - AttackTwo
+  - AttackThree
+  - Heal

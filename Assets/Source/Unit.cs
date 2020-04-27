@@ -11,6 +11,9 @@ public class Unit : MonoBehaviour {
 
         [SerializeField]
         public int damageValue;
+
+        [SerializeField]
+        public bool isHealer;
     }
 
     [System.Serializable]
@@ -43,6 +46,11 @@ public class Unit : MonoBehaviour {
     [SerializeField]
     List<AttackData> attackDataList;
 
+    [Header("For Enemy Only")]
+
+    [SerializeField, Tooltip("Only for the enemy")]
+    List<string> attackIDs;
+
     // 
     // \Config
 
@@ -58,8 +66,15 @@ public class Unit : MonoBehaviour {
         }
     }
 
-    public bool TakeDamage(int damage) {
-        currentHP -= damage;
+    public bool TakeDamage(int damage, bool isHealer = false) {
+        if(!isHealer) {
+            currentHP -= damage;
+
+        } else {
+            if(currentHP != maxHP) {
+                currentHP += damage;
+            }
+        }
 
         if(currentHP < 0) {
             return true;
@@ -68,8 +83,24 @@ public class Unit : MonoBehaviour {
         }
     }
 
+    // This is for the Player character.
     public ActualAttackData FetchAttackData(string attackID) {
         ActualAttackData data = attackDataMap[attackID];
         return data;
     }
+
+    // This is for the Enemy.
+    // Fetch one random action from the list.
+
+    public ActualAttackData FetchAttackDataForEnemy() {
+        Debug.Log("ActualAttackData was called " + attackIDs.Count);
+        int attackDataIndex = Random.Range(0, attackIDs.Count - 1);
+
+        string attackID = attackIDs[attackDataIndex];
+
+        ActualAttackData data = attackDataMap[attackID];
+
+        return data;
+    }
+
 }

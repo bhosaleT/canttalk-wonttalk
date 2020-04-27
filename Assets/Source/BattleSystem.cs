@@ -144,12 +144,21 @@ public class BattleSystem : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
 
-        dialogueText.text = currentEnemy.unitName + " used something";
+        Unit.ActualAttackData data = currentEnemy.FetchAttackDataForEnemy();
+
+        dialogueText.text = currentEnemy.unitName + " used " + data.attackDialogue;
+
+        yield return new WaitForSeconds(1f);
+
+        if(data.isHealer) {
+            dialogueText.text = currentEnemy.unitName + " healed itself with " + data.damageValue;
+        } else {
+            dialogueText.text = currentEnemy.unitName + " did " + data.damageValue + " damage";
+        }
 
         yield return new WaitForSeconds(2f);
 
-        dialogueText.text = currentEnemy.unitName + " did 10 damage";
-        bool isDead = player.TakeDamage(10);
+        bool isDead = currentEnemy.TakeDamage(data.damageValue, data.isHealer);
 
         if(isDead) {
             state = BattleState.WON;
