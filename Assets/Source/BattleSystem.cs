@@ -64,7 +64,7 @@ public class BattleSystem : MonoBehaviour {
 
         state = BattleState.START;
         // Placeholder remove this.
-        int random = Random.Range(0, 2);
+        int random = Random.Range(0, 3);
         StartCoroutine(SetupBattle(enemyNames[random]));
     }
 
