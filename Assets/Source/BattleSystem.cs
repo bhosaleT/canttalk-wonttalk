@@ -18,6 +18,24 @@ public class BattleSystem : MonoBehaviour {
 
     }
 
+    [System.Serializable]
+    public class GameWinData {
+        [SerializeField]
+        public string enemyName;
+
+        [SerializeField]
+        public string winDialogue;
+    }
+
+    [System.Serializable]
+    public class GameLoseData {
+        [SerializeField]
+        public string enemyName;
+
+        [SerializeField]
+        public string loseDialogue;
+    }
+
     //Config
     //
 
@@ -48,15 +66,54 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField]
     GameObject buttonsGameObject;
 
+    [SerializeField]
+    GameObject winCase;
+
+    [SerializeField]
+    GameObject lostCase;
+
+    [SerializeField]
+    GameObject gameOverGO;
+
+    [SerializeField]
+    TextMeshProUGUI winMessage;
+
+    [SerializeField]
+    TextMeshProUGUI lostMessage;
+
+    [SerializeField]
+    List<ParticleSystem> particleSystems;
+
+    [SerializeField]
+    List<GameWinData> gameWinList;
+
+    [SerializeField]
+    List<GameLoseData> gameLoseList;
+
     BattleState state;
     Dictionary<string, GameObject> enemyDataMap;
+    Dictionary<string, string> gameWinMap;
+    Dictionary<string, string> gameLoseMap;
     Unit player;
     Unit currentEnemy;
 
     void Awake() {
         enemyDataMap = new Dictionary<string, GameObject>();
+        gameWinMap = new Dictionary<string, string>();
+        gameLoseMap = new Dictionary<string, string>();
+
+        // Create all the data dictionaries.
+
         foreach(EnemyData data in enemyDataList) {
             enemyDataMap.Add(data.enemyName, data.enemyPrefab);
+        }
+
+        foreach(GameWinData data in gameWinList) {
+            gameWinMap.Add(data.enemyName, data.winDialogue);
+        }
+
+        foreach(GameLoseData data in gameLoseList) {
+            gameLoseMap.Add(data.enemyName, data.loseDialogue);
         }
     }
 
@@ -104,7 +161,7 @@ public class BattleSystem : MonoBehaviour {
 
     IEnumerator HideDialogueAndShowButtons() {
 
-        dialogueText.text = "Ahh it's your turn! Choose your action:";
+        dialogueText.text = "Ahh it's your turn! Here are your options:";
 
         yield return new WaitForSeconds(1.5f);
 
@@ -138,6 +195,11 @@ public class BattleSystem : MonoBehaviour {
 
     IEnumerator ActualEnemyTurn() {
 
+        // stop particle systems from playing.
+        foreach(ParticleSystem system in particleSystems) {
+            system.Stop();
+        }
+
         dialogueText.gameObject.SetActive(true);
 
         dialogueText.text = "It's " + currentEnemy.unitName + "'s turn";
@@ -158,10 +220,10 @@ public class BattleSystem : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
 
-        bool isDead = currentEnemy.TakeDamage(data.damageValue, data.isHealer);
+        bool isDead = player.TakeDamage(data.damageValue, data.isHealer);
 
         if(isDead) {
-            state = BattleState.WON;
+            state = BattleState.LOST;
             EndBattle();
         } else {
             state = BattleState.PLAYERTURN;
@@ -175,7 +237,27 @@ public class BattleSystem : MonoBehaviour {
     }
 
     void EndBattle() {
-        // want a lot of stuff to happen here.
+        gameOverGO.SetActive(true);
+
+        if(state == BattleState.WON) {
+
+            // Show win screen.
+
+            string message = gameWinMap[currentEnemy.unitName];
+            winMessage.text = message;
+            winCase.SetActive(true);
+        } else if(state == BattleState.LOST) {
+
+            // Show lost screen.
+
+            string message = gameLoseMap[currentEnemy.unitName];
+            lostMessage.text = message;
+            lostCase.SetActive(true);
+        }
+    }
+
+    void ResetGame() {
+
     }
 
     // Public Methods
@@ -188,8 +270,17 @@ public class BattleSystem : MonoBehaviour {
             return;
         }
 
-        Unit.ActualAttackData data = player.FetchAttackData(attackID);
+        Unit.ActualAttackData data = currentEnemy.FetchAttackData(attackID);
         StartCoroutine(ActuallyAttack(data));
+    }
+
+    public void GoBackToMapScreen() {
+        // Reset the game before you go.
+
+    }
+
+    public void Retry() {
+
     }
 
 }

@@ -51,18 +51,27 @@ public class Unit : MonoBehaviour {
     [SerializeField, Tooltip("Only for the enemy")]
     List<string> attackIDs;
 
+    [SerializeField, Tooltip("Enemy attack data")]
+    List<AttackData> enemyDataList;
+
     // 
     // \Config
 
     Dictionary<string, ActualAttackData> attackDataMap;
+    Dictionary<string, ActualAttackData> enemyDataMap;
 
     // Public methods
 
     void Awake() {
         attackDataMap = new Dictionary<string, ActualAttackData>();
+        enemyDataMap = new Dictionary<string, ActualAttackData>();
 
         foreach(AttackData data in attackDataList) {
             attackDataMap.Add(data.attackID, data.attackData);
+        }
+
+        foreach(AttackData data in enemyDataList) {
+            enemyDataMap.Add(data.attackID, data.attackData);
         }
     }
 
@@ -76,7 +85,9 @@ public class Unit : MonoBehaviour {
             }
         }
 
-        if(currentHP < 0) {
+        Debug.Log(unitName + currentHP);
+
+        if(currentHP <= 0) {
             return true;
         } else {
             return false;
@@ -98,7 +109,7 @@ public class Unit : MonoBehaviour {
 
         string attackID = attackIDs[attackDataIndex];
 
-        ActualAttackData data = attackDataMap[attackID];
+        ActualAttackData data = enemyDataMap[attackID];
 
         return data;
     }

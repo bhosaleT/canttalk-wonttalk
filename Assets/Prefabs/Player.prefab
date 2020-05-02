@@ -148,8 +148,8 @@ MonoBehaviour:
   unitName: Player
   unitLevel: 2
   damage: 5
-  maxHP: 1000
-  currentHP: 1000
+  maxHP: 100
+  currentHP: 100
   attackDataList:
   - attackID: Attack
     attackData:
@@ -157,3 +157,4 @@ MonoBehaviour:
       damageValue: 10
       isHealer: 0
   attackIDs: []
+  enemyDataList: []

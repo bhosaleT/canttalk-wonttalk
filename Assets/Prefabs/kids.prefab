@@ -145,34 +145,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89c2a5179ddae43a527d0e9abce3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Kids
-  unitLevel: 3
-  damage: 5
-  maxHP: 1000
-  currentHP: 1000
+  unitName: The Twins
+  unitLevel: 10
+  damage: 10
+  maxHP: 100
+  currentHP: 100
   attackDataList:
-  - attackID: AttackOne
+  - attackID: Ignore
     attackData:
-      attackDialogue: Attack was attacked
-      damageValue: 1
+      attackDialogue: 'Ignore was used '
+      damageValue: 50
       isHealer: 0
-  - attackID: AttackTwo
+  - attackID: Awkward
     attackData:
-      attackDialogue: Attack was attaccked
-      damageValue: 1
+      attackDialogue: Awkward was used
+      damageValue: 50
       isHealer: 0
-  - attackID: AttackThree
+  - attackID: Glare
     attackData:
-      attackDialogue: Attacl was attacked
-      damageValue: 1
+      attackDialogue: Glare was used
+      damageValue: 50
       isHealer: 0
-  - attackID: Heal
+  - attackID: Confusion
     attackData:
-      attackDialogue: Heal was used
-      damageValue: 1
+      attackDialogue: Confusion was used
+      damageValue: 50
+      isHealer: 0
+  - attackID: Cloak
+    attackData:
+      attackDialogue: Cloak was used
+      damageValue: 30
       isHealer: 1
+  - attackID: Music
+    attackData:
+      attackDialogue: Music was used
+      damageValue: 50
+      isHealer: 0
+  - attackID: Ghost
+    attackData:
+      attackDialogue: Ghost was used
+      damageValue: 300
+      isHealer: 0
   attackIDs:
-  - AttackOne
-  - AttackTwo
-  - AttackThree
-  - Heal
+  - One
+  - Two
+  - Three
+  - Four
+  enemyDataList:
+  - attackID: One
+    attackData:
+      attackDialogue: Attack One was used
+      damageValue: 10
+      isHealer: 0
+  - attackID: Two
+    attackData:
+      attackDialogue: Attack Two was used
+      damageValue: 10
+      isHealer: 0
+  - attackID: Three
+    attackData:
+      attackDialogue: Attack Three was used
+      damageValue: 30
+      isHealer: 0
+  - attackID: Four
+    attackData:
+      attackDialogue: 'Attack Four was used '
+      damageValue: 30
+      isHealer: 0
