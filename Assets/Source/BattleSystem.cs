@@ -90,6 +90,12 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField]
     List<GameLoseData> gameLoseList;
 
+    [SerializeField]
+    ParticleSystem hurtEffectPlayer;
+
+    [SerializeField]
+    ParticleSystem hurtEffectEnemy;
+
     BattleState state;
     Dictionary<string, GameObject> enemyDataMap;
     Dictionary<string, string> gameWinMap;
@@ -124,7 +130,7 @@ public class BattleSystem : MonoBehaviour {
         state = BattleState.START;
         // Placeholder remove this.
         int random = Random.Range(0, 3);
-        StartCoroutine(SetupBattle(enemyNames[0]));
+        StartCoroutine(SetupBattle(enemyNames[newEnemy]));
     }
 
     IEnumerator SetupBattle(string enemyName) {
@@ -196,6 +202,8 @@ public class BattleSystem : MonoBehaviour {
         dialogueText.text = dialogue;
 
         bool isDead = currentEnemy.TakeDamage(data.damageValue);
+        enemyHUD.UpdateHUD();
+        hurtEffectEnemy.Play();
 
         yield return new WaitForSeconds(1.5f);
 
@@ -234,9 +242,13 @@ public class BattleSystem : MonoBehaviour {
             dialogueText.text = currentEnemy.unitName + " did " + data.damageValue + " damage";
         }
 
-        yield return new WaitForSeconds(2f);
-
         bool isDead = player.TakeDamage(data.damageValue, data.isHealer);
+
+        hurtEffectPlayer.Play();
+
+        playerHUD.UpdateHUD();
+
+        yield return new WaitForSeconds(2f);
 
         if(isDead) {
             state = BattleState.LOST;

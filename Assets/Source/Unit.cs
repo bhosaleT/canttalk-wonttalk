@@ -76,6 +76,7 @@ public class Unit : MonoBehaviour {
     }
 
     public bool TakeDamage(int damage, bool isHealer = false) {
+
         if(!isHealer) {
             currentHP -= damage;
 

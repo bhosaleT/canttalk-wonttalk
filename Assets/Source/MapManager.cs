@@ -52,6 +52,7 @@ public class MapManager : MonoBehaviour {
 
         foreach(ButtonsData data in buttonsDataList) {
             buttonDataMap.Add(data.buttonName, data.enemyButton);
+            // data.enemyButton.enabled = false;
             data.enemyButton.interactable = false;
         }
 
@@ -60,8 +61,10 @@ public class MapManager : MonoBehaviour {
         }
 
         if(currentCharacter == null) {
+            Debug.Log("Current character was null");
             currentCharacter = "The Dude";
         } else if(currentCharacter == "The Dude") {
+            Debug.Log("Current character was the dude");
             currentCharacter = "The Twins";
         } else if(currentCharacter == "The Twins") {
             currentCharacter = "The Lady";

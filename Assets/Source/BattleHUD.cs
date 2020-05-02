@@ -34,6 +34,7 @@ public class BattleHUD : MonoBehaviour {
     // update hud
 
     public void UpdateHUD() {
+        Debug.Log("GameObject name" + gameObject.name);
         hpSlider.value = currentUnit.currentHP;
     }
 
