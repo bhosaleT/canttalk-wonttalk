@@ -52,7 +52,8 @@ MonoBehaviour:
   attackDataList:
   - attackID: Ignore
     attackData:
-      attackDialogue: 'Ignore was used '
+      attackDialogue: You used Ignore, the dude looked at you look out the window
+        and grunted.
       damageValue: 50
       isHealer: 0
   - attackID: Awkward

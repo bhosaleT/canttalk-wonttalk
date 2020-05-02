@@ -97,6 +97,8 @@ public class BattleSystem : MonoBehaviour {
     Unit player;
     Unit currentEnemy;
 
+    public static int newEnemy;
+
     void Awake() {
         enemyDataMap = new Dictionary<string, GameObject>();
         gameWinMap = new Dictionary<string, string>();
@@ -122,7 +124,7 @@ public class BattleSystem : MonoBehaviour {
         state = BattleState.START;
         // Placeholder remove this.
         int random = Random.Range(0, 3);
-        StartCoroutine(SetupBattle(enemyNames[random]));
+        StartCoroutine(SetupBattle(enemyNames[0]));
     }
 
     IEnumerator SetupBattle(string enemyName) {
@@ -147,12 +149,23 @@ public class BattleSystem : MonoBehaviour {
 
         dialogueText.gameObject.SetActive(true);
 
-        dialogueText.text = "A wild " + currentEnemy.unitName + " approaches...";
+        string dialogue = "A wild " + currentEnemy.unitName + " approaches...";
 
-        yield return new WaitForSeconds(2f);
+        dialogueText.text = dialogue;
+
+        yield return new WaitForSeconds(1f);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
+    }
+
+    IEnumerator TypeSentence(string sentence, float howLongToWaitAfterDialogue = 1f) {
+        dialogueText.text = "";
+
+        foreach(char letter in sentence.ToCharArray()) {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 
     void PlayerTurn() {
@@ -160,8 +173,9 @@ public class BattleSystem : MonoBehaviour {
     }
 
     IEnumerator HideDialogueAndShowButtons() {
+        string dialogue = "Ahh it's your turn! Here are your options:";
 
-        dialogueText.text = "Ahh it's your turn! Here are your options:";
+        dialogueText.text = dialogue;
 
         yield return new WaitForSeconds(1.5f);
 
@@ -175,13 +189,15 @@ public class BattleSystem : MonoBehaviour {
 
         dialogueText.text = data.attackDialogue;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
 
-        dialogueText.text = "You did " + data.damageValue;
+        string dialogue = "You did " + data.damageValue;
+
+        dialogueText.text = dialogue;
 
         bool isDead = currentEnemy.TakeDamage(data.damageValue);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         if(isDead) {
             // End the battle.
