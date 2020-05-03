@@ -96,6 +96,15 @@ public class BattleSystem : MonoBehaviour {
     [SerializeField]
     ParticleSystem hurtEffectEnemy;
 
+    [SerializeField]
+    AudioSource effects;
+
+    [SerializeField]
+    AudioClip damageClip;
+
+    [SerializeField]
+    AudioClip powerupClip;
+
     BattleState state;
     Dictionary<string, GameObject> enemyDataMap;
     Dictionary<string, string> gameWinMap;
@@ -104,8 +113,13 @@ public class BattleSystem : MonoBehaviour {
     Unit currentEnemy;
 
     public static int newEnemy;
+    AudioManager audioManager;
 
     void Awake() {
+        audioManager = FindObjectOfType<AudioManager>();
+
+        audioManager.PlayFightTheme();
+
         enemyDataMap = new Dictionary<string, GameObject>();
         gameWinMap = new Dictionary<string, string>();
         gameLoseMap = new Dictionary<string, string>();
@@ -147,6 +161,8 @@ public class BattleSystem : MonoBehaviour {
         } else {
             Debug.LogError("Enemy GameObject not found, MayDay!! MayDay!!");
         }
+
+        yield return new WaitForSeconds(1f);
 
         playerHUD.SetupHUD(player);
         enemyHUD.SetupHUD(currentEnemy);
@@ -200,7 +216,9 @@ public class BattleSystem : MonoBehaviour {
         string dialogue = "You did " + data.damageValue;
 
         dialogueText.text = dialogue;
+        effects.clip = damageClip;
 
+        effects.Play();
         bool isDead = currentEnemy.TakeDamage(data.damageValue);
         enemyHUD.UpdateHUD();
         hurtEffectEnemy.Play();
@@ -241,6 +259,9 @@ public class BattleSystem : MonoBehaviour {
         } else {
             dialogueText.text = currentEnemy.unitName + " did " + data.damageValue + " damage";
         }
+        effects.clip = damageClip;
+
+        effects.Play();
 
         bool isDead = player.TakeDamage(data.damageValue, data.isHealer);
 
@@ -309,6 +330,15 @@ public class BattleSystem : MonoBehaviour {
 
     public void Retry() {
 
+    }
+
+    public void PlayMenuTheme() {
+        audioManager.PlayMenuTheme();
+    }
+
+    public void PlayPowerUpTheme() {
+        effects.clip = powerupClip;
+        effects.Play();
     }
 
 }
