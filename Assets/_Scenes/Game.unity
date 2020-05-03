@@ -5771,7 +5771,7 @@ MonoBehaviour:
     winDialogue: You defeated The Dude. Niceee.
   - enemyName: The Twins
     winDialogue: You defeated The Twins. Niceee.
-  - enemyName: Lady
+  - enemyName: The Lady
     winDialogue: You defeated The Lady. Niceee.
   gameLoseList:
   - enemyName: The Dude
@@ -5780,7 +5780,7 @@ MonoBehaviour:
   - enemyName: The Twins
     loseDialogue: The Twins defeated you. Happens to the best of us. Give it another
       shot.
-  - enemyName: Lady
+  - enemyName: The Lady
     loseDialogue: The Lady defeated you. Happens to the best of us. Give it another
       shot.
   hurtEffectPlayer: {fileID: 1594306430}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
@@ -22,6 +23,9 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField]
     MapManager mapManager;
 
+    [SerializeField]
+    Button continueButton;
+
     void Start() {
         sentences = new Queue<string>();
     }
@@ -32,11 +36,14 @@ public class DialogueManager : MonoBehaviour {
 
     IEnumerator TypeSentence(string sentence) {
         dialogueText.text = "";
+        continueButton.interactable = false;
 
         foreach(char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
             yield return null;
         }
+
+        continueButton.interactable = true;
     }
 
     // Public Methods
