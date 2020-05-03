@@ -153,62 +153,71 @@ MonoBehaviour:
   attackDataList:
   - attackID: Ignore
     attackData:
-      attackDialogue: 'Ignore was used '
-      damageValue: 50
+      attackDialogue: The more you tried to ignore it the louder it got. "The Twins"
+        shrieked in joy.
+      damageValue: 0
       isHealer: 0
   - attackID: Awkward
     attackData:
-      attackDialogue: Awkward was used
-      damageValue: 50
+      attackDialogue: You should probably not Hi-Fi someone else's kids.
+      damageValue: 0
       isHealer: 0
   - attackID: Glare
     attackData:
-      attackDialogue: Glare was used
-      damageValue: 50
+      attackDialogue: 'You used your "Run Brats" eyes. "The Twins" whimpered. '
+      damageValue: 30
       isHealer: 0
   - attackID: Confusion
     attackData:
-      attackDialogue: Confusion was used
-      damageValue: 50
+      attackDialogue: You asked "The Twins" to point out their parents.
+      damageValue: 20
       isHealer: 0
   - attackID: Cloak
     attackData:
-      attackDialogue: Cloak was used
+      attackDialogue: You used the "Cloak of Cowardice" to try and run away................
+        Running away successfull!
       damageValue: 30
-      isHealer: 1
+      isHealer: 0
   - attackID: Music
     attackData:
-      attackDialogue: Music was used
-      damageValue: 50
+      attackDialogue: '"The Twins" don''t seem to understand what classic rock is.'
+      damageValue: 0
       isHealer: 0
   - attackID: Ghost
     attackData:
-      attackDialogue: Ghost was used
-      damageValue: 300
+      attackDialogue: Karen took the kids.
+      damageValue: 20
       isHealer: 0
   attackIDs:
   - One
   - Two
   - Three
   - Four
+  - Five
   enemyDataList:
   - attackID: One
     attackData:
-      attackDialogue: Attack One was used
+      attackDialogue: "\"The Twins\" used 'If there\u2019s a speed of light \u2026
+        what\u2019s the speed of dark?'"
       damageValue: 10
       isHealer: 0
   - attackID: Two
     attackData:
-      attackDialogue: Attack Two was used
+      attackDialogue: '"The Twins" used ''Why is Earth?'''
       damageValue: 10
       isHealer: 0
   - attackID: Three
     attackData:
-      attackDialogue: Attack Three was used
-      damageValue: 30
+      attackDialogue: '"The Twins" used ''Is it true that mermaids evolved into dolphins?'''
+      damageValue: 10
       isHealer: 0
   - attackID: Four
     attackData:
-      attackDialogue: 'Attack Four was used '
-      damageValue: 30
+      attackDialogue: '"The Twins" used "Did Bush do 9/11?"'
+      damageValue: 10
+      isHealer: 0
+  - attackID: Five
+    attackData:
+      attackDialogue: '"The Twins" used "Are the frogs really turning gay?"'
+      damageValue: 10
       isHealer: 0

@@ -38,12 +38,17 @@ public class MapManager : MonoBehaviour {
     [SerializeField]
     DialogueManager dialogueManager;
 
+    [SerializeField]
+    GameObject ThankYouGameObject;
+
     //
     // \Config
 
     static string currentCharacter;
     Dictionary<string, Button> buttonDataMap;
     Dictionary<int, Dialogue> dialogueDataMap;
+
+    bool gameHasEnded = false;
 
     void Awake() {
 
@@ -68,9 +73,14 @@ public class MapManager : MonoBehaviour {
             currentCharacter = "The Twins";
         } else if(currentCharacter == "The Twins") {
             currentCharacter = "The Lady";
+        } else if(currentCharacter == "The Lady") {
+            ThankYouGameObject.SetActive(true);
+            gameHasEnded = true;
         }
 
-        buttonDataMap[currentCharacter].interactable = true;
+        if(!gameHasEnded) {
+            buttonDataMap[currentCharacter].interactable = true;
+        }
 
     }
 

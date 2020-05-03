@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89c2a5179ddae43a527d0e9abce3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Lady
+  unitName: The Lady
   unitLevel: 20
   damage: 10
   maxHP: 100
@@ -154,63 +154,59 @@ MonoBehaviour:
   attackDataList:
   - attackID: Ignore
     attackData:
-      attackDialogue: 'Ignore was used '
-      damageValue: 10
+      attackDialogue: 'You cannot use ignore, stop holding up the line. '
+      damageValue: 0
       isHealer: 0
   - attackID: Awkward
     attackData:
-      attackDialogue: Awkward was used
-      damageValue: 50
+      attackDialogue: You handed her your "Justice League of America" card. "The Lady"
+        raised her eyebrows at you.
+      damageValue: 0
       isHealer: 0
   - attackID: Glare
     attackData:
-      attackDialogue: Glare was used
-      damageValue: 50
+      attackDialogue: 'You cannot use glare, stop holding up the line. '
+      damageValue: 0
       isHealer: 0
   - attackID: Confusion
     attackData:
-      attackDialogue: Confusion was used
-      damageValue: 50
+      attackDialogue: You cannot use Confusion, stop holding up the line.
+      damageValue: 0
       isHealer: 0
   - attackID: Cloak
     attackData:
-      attackDialogue: Cloak was used
-      damageValue: 30
-      isHealer: 1
+      attackDialogue: There's no where to hide, stop holding up the line.
+      damageValue: 0
+      isHealer: 0
   - attackID: Music
     attackData:
-      attackDialogue: Music was used
-      damageValue: 50
+      attackDialogue: You cannot use the music right now, stop holding up the line.
+      damageValue: 0
       isHealer: 0
   - attackID: Ghost
     attackData:
-      attackDialogue: Ghost was used
-      damageValue: 300
+      attackDialogue: Karen used "Bring me the manager!"
+      damageValue: 99999
       isHealer: 0
   attackIDs:
   - One
   - Two
   - Three
-  - Four
   enemyDataList:
   - attackID: One
     attackData:
-      attackDialogue: Attack One was used
+      attackDialogue: '"The Lady" used "Your card got declined".'
       damageValue: 10
       isHealer: 0
   - attackID: Two
     attackData:
-      attackDialogue: Attack Two was used
-      damageValue: 10
+      attackDialogue: '"The Lady" used "Would you like to donate to Save the elderly
+        kitties foundation?"'
+      damageValue: 20
       isHealer: 0
   - attackID: Three
     attackData:
-      attackDialogue: Attack Three was used
-      damageValue: 30
-      isHealer: 0
-  - attackID: Four
-    attackData:
-      attackDialogue: 'Attack Four was used '
+      attackDialogue: '"The Lady" used "You sure you should be eating all this ?"'
       damageValue: 30
       isHealer: 0
 --- !u!212 &7728319323253303056

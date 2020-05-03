@@ -5765,20 +5765,24 @@ MonoBehaviour:
   particleSystems:
   - {fileID: 1004810396}
   - {fileID: 669957990}
+  - {fileID: 715855643}
   gameWinList:
   - enemyName: The Dude
-    winDialogue: You defeated the dude
+    winDialogue: You defeated The Dude. Niceee.
   - enemyName: The Twins
-    winDialogue: You defeated the twins
+    winDialogue: You defeated The Twins. Niceee.
   - enemyName: Lady
-    winDialogue: 'You defeated lady '
+    winDialogue: You defeated The Lady. Niceee.
   gameLoseList:
   - enemyName: The Dude
-    loseDialogue: You lost to the dude
+    loseDialogue: The Dude defeated you. Happens to the best of us. Give it another
+      shot.
   - enemyName: The Twins
-    loseDialogue: You lost to the twins
+    loseDialogue: The Twins defeated you. Happens to the best of us. Give it another
+      shot.
   - enemyName: Lady
-    loseDialogue: You lost to the lady
+    loseDialogue: The Lady defeated you. Happens to the best of us. Give it another
+      shot.
   hurtEffectPlayer: {fileID: 1594306430}
   hurtEffectEnemy: {fileID: 177722490}
   effects: {fileID: 1886273608}
@@ -11501,7 +11505,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe44d914978ba684eb7ab1aab769b276, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0032f1bf1f2fc6d4aba24dc01d98def1, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11527,8 +11531,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -11537,7 +11541,7 @@ MonoBehaviour:
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 100
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -22633,6 +22637,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 715855643}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1067619468
@@ -29564,6 +29579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 4352325104428689756, guid: c0d94e32aebf9164a8af3f823a681bd3,
+        type: 3}
+      propertyPath: transitionAnimator
+      value: 
+      objectReference: {fileID: 2088621302}
     - target: {fileID: 4352325104428689757, guid: c0d94e32aebf9164a8af3f823a681bd3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29619,11 +29639,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4352325104428689756, guid: c0d94e32aebf9164a8af3f823a681bd3,
-        type: 3}
-      propertyPath: transitionAnimator
-      value: 
-      objectReference: {fileID: 2088621302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0d94e32aebf9164a8af3f823a681bd3, type: 3}
 --- !u!1 &2024187354
@@ -35108,7 +35123,7 @@ PrefabInstance:
     - target: {fileID: 7268038616033453794, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228.4
+      value: 230.98
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453794, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
@@ -35118,7 +35133,7 @@ PrefabInstance:
     - target: {fileID: 7268038616033453794, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100.65
+      value: 108.67
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453794, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
@@ -35158,7 +35173,7 @@ PrefabInstance:
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
@@ -35169,16 +35184,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2113201267}
+      objectReference: {fileID: 418479002}
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMapScene
+      value: ResetGame
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
@@ -35188,7 +35203,7 @@ PrefabInstance:
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MapScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
@@ -35219,6 +35234,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038615944400635, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_text
+      value: Retry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038615944400635, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038615944400635, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038615944400635, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038615944400635, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f862283ca6d080547851b46467a7abdf, type: 3}

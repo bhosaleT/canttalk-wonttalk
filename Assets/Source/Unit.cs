@@ -106,13 +106,17 @@ public class Unit : MonoBehaviour {
 
     public ActualAttackData FetchAttackDataForEnemy() {
         Debug.Log("ActualAttackData was called " + attackIDs.Count);
-        int attackDataIndex = Random.Range(0, attackIDs.Count - 1);
+        int attackDataIndex = Random.Range(0, attackIDs.Count);
 
         string attackID = attackIDs[attackDataIndex];
 
         ActualAttackData data = enemyDataMap[attackID];
 
         return data;
+    }
+
+    public void Reset() {
+        currentHP = maxHP;
     }
 
 }

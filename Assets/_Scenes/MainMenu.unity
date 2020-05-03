@@ -291,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
@@ -316,6 +316,31 @@ PrefabInstance:
     - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 529235829}
+    - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268038616033453795, guid: f862283ca6d080547851b46467a7abdf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7268038615944400635, guid: f862283ca6d080547851b46467a7abdf,

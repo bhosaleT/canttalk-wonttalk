@@ -52,65 +52,56 @@ MonoBehaviour:
   attackDataList:
   - attackID: Ignore
     attackData:
-      attackDialogue: You used Ignore, the dude looked at you look out the window
-        and grunted.
-      damageValue: 50
+      attackDialogue: You looked at everything but the "Dude" rendering him useless.
+      damageValue: 25
       isHealer: 0
   - attackID: Awkward
     attackData:
-      attackDialogue: Awkward was used
-      damageValue: 50
+      attackDialogue: You went for a Hi-5 but missed and ended up slapping the "Dude".
+      damageValue: 10
       isHealer: 0
   - attackID: Glare
     attackData:
-      attackDialogue: Glare was used
-      damageValue: 50
+      attackDialogue: 'You glared at the "Dude" to no effect. '
+      damageValue: 0
       isHealer: 0
   - attackID: Confusion
     attackData:
-      attackDialogue: Confusion was used
-      damageValue: 50
+      attackDialogue: 'You used confusion on the "Dude" by asking if he would like
+        some Covfefe. '
+      damageValue: 10
       isHealer: 0
   - attackID: Cloak
     attackData:
-      attackDialogue: Cloak was used
-      damageValue: 30
-      isHealer: 1
+      attackDialogue: You used the "Cloak of Cowardice" to try and run away.......
+        Running away failed
+      damageValue: 0
+      isHealer: 0
   - attackID: Music
     attackData:
-      attackDialogue: Music was used
-      damageValue: 50
+      attackDialogue: You played Sweet Child of Mine to drown out the world. The "Dude"
+        went on twitter to ask what is Guns and Roses.
+      damageValue: 35
       isHealer: 0
   - attackID: Ghost
     attackData:
-      attackDialogue: Ghost was used
-      damageValue: 300
+      attackDialogue: Karen has no interest in dealing with the "Dude".
+      damageValue: 0
       isHealer: 0
   attackIDs:
   - One
   - Two
-  - Three
-  - Four
   enemyDataList:
   - attackID: One
     attackData:
-      attackDialogue: Attack One was used
+      attackDialogue: The Enemy called you "Dude" 69 times.
       damageValue: 10
       isHealer: 0
   - attackID: Two
     attackData:
-      attackDialogue: Attack Two was used
-      damageValue: 10
-      isHealer: 0
-  - attackID: Three
-    attackData:
-      attackDialogue: Attack Three was used
-      damageValue: 30
-      isHealer: 0
-  - attackID: Four
-    attackData:
-      attackDialogue: 'Attack Four was used '
-      damageValue: 30
+      attackDialogue: The Enemy tried to explain to you the depth of Billie Eilish
+        songs. Dealing massive damage.
+      damageValue: 20
       isHealer: 0
 --- !u!1 &6682617742385895294
 GameObject:

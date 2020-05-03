@@ -143,7 +143,6 @@ public class BattleSystem : MonoBehaviour {
 
         state = BattleState.START;
         // Placeholder remove this.
-        int random = Random.Range(0, 3);
         StartCoroutine(SetupBattle(enemyNames[newEnemy]));
     }
 
@@ -211,9 +210,9 @@ public class BattleSystem : MonoBehaviour {
 
         dialogueText.text = data.attackDialogue;
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.5f);
 
-        string dialogue = "You did " + data.damageValue;
+        string dialogue = "You did " + data.damageValue + " damage";
 
         dialogueText.text = dialogue;
         effects.clip = damageClip;
@@ -223,7 +222,7 @@ public class BattleSystem : MonoBehaviour {
         enemyHUD.UpdateHUD();
         hurtEffectEnemy.Play();
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         if(isDead) {
             // End the battle.
@@ -250,9 +249,9 @@ public class BattleSystem : MonoBehaviour {
 
         Unit.ActualAttackData data = currentEnemy.FetchAttackDataForEnemy();
 
-        dialogueText.text = currentEnemy.unitName + " used " + data.attackDialogue;
+        dialogueText.text = data.attackDialogue;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3.5f);
 
         if(data.isHealer) {
             dialogueText.text = currentEnemy.unitName + " healed itself with " + data.damageValue;
@@ -269,7 +268,7 @@ public class BattleSystem : MonoBehaviour {
 
         playerHUD.UpdateHUD();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         if(isDead) {
             state = BattleState.LOST;
@@ -295,17 +294,28 @@ public class BattleSystem : MonoBehaviour {
             string message = gameWinMap[currentEnemy.unitName];
             winMessage.text = message;
             winCase.SetActive(true);
+            lostCase.SetActive(false);
         } else if(state == BattleState.LOST) {
 
             // Show lost screen.
-
             string message = gameLoseMap[currentEnemy.unitName];
             lostMessage.text = message;
             lostCase.SetActive(true);
+            winCase.SetActive(false);
         }
     }
 
-    void ResetGame() {
+    public void ResetGame() {
+        gameOverGO.SetActive(false);
+        lostCase.SetActive(false);
+        dialogueText.text = "";
+
+        Destroy(player.gameObject);
+        Destroy(currentEnemy.gameObject);
+
+        state = BattleState.START;
+        // Placeholder remove this.
+        StartCoroutine(SetupBattle(enemyNames[newEnemy]));
 
     }
 
