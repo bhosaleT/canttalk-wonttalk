@@ -52,6 +52,9 @@ public class MapManager : MonoBehaviour {
 
     void Awake() {
 
+        ThankYouGameObject.SetActive(false);
+        gameHasEnded = false;
+
         buttonDataMap = new Dictionary<string, Button>();
         dialogueDataMap = new Dictionary<int, Dialogue>();
 
@@ -76,6 +79,7 @@ public class MapManager : MonoBehaviour {
         } else if(currentCharacter == "The Lady") {
             ThankYouGameObject.SetActive(true);
             gameHasEnded = true;
+            currentCharacter = null;
         }
 
         if(!gameHasEnded) {
